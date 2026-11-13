@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050507">
+
+    <title>Surpresa</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="shortcut icon" href="icon2.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <main class="experience">
+        <div class="magic-effects" aria-hidden="true">
+            <div class="floating-pedals"></div>
+            <div class="light-particles"></div>
+        </div>
+
+        <!-- TELA 1: O JARDIM -->
+        <section class="screen garden" id="jardim">
+
+            <div class="ambient-glow"></div>
+
+            <header class="garden-heading">
+                <p class="eyebrow">Lembrancinha</p>
+                <h1>Feliz aniversário <span>meu amor!</span></h1>
+                <p class="subtitle">
+                    Eu menti sobre não fazer nada demais.
+                </p>
+            </header>
+
+            <div class="bouquet" aria-label="Buquê ilustrado de lírios rosa">
+
+                <svg class="lily-art"
+                     viewBox="0 0 600 560"
+                     xmlns="http://www.w3.org/2000/svg"
+                     role="img"
+                     aria-labelledby="lily-title">
+
+                    <title id="lily-title">Não tenho dinheiro pra um buquê de verdade</title>
+
+                    <defs>
+                        <linearGradient id="petal" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#fff0f7"/>
+                            <stop offset="38%" stop-color="#f4a4cc"/>
+                            <stop offset="72%" stop-color="#d65398"/>
+                            <stop offset="100%" stop-color="#78214f"/>
+                        </linearGradient>
+
+                        <linearGradient id="petal-light" x1="0" y1="0" x2="0.8" y2="1">
+                            <stop offset="0%" stop-color="#ffe6f2"/>
+                            <stop offset="55%" stop-color="#ec83b7"/>
+                            <stop offset="100%" stop-color="#a82d6b"/>
+                        </linearGradient>
+
+                        <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#5c9b78"/>
+                            <stop offset="55%" stop-color="#1d573d"/>
+                            <stop offset="100%" stop-color="#0b281d"/>
+                        </linearGradient>
+
+                        <radialGradient id="flower-glow">
+                            <stop offset="0%" stop-color="#c32b78" stop-opacity=".3"/>
+                            <stop offset="100%" stop-color="#c32b78" stop-opacity="0"/>
+                        </radialGradient>
+
+                        <!-- Uma flor reutilizável -->
+                        <g id="lily">
+
+                            <!-- Pétalas traseiras -->
+                            <path d="M0 8 C-45 -18 -63 -75 -33 -113
+                                     C-8 -86 3 -34 0 8Z"
+                                  fill="url(#petal-light)"/>
+
+                            <path d="M0 8 C22 -35 51 -88 37 -119
+                                     C3 -99 -10 -44 0 8Z"
+                                  fill="url(#petal)"/>
+
+                            <path d="M0 8 C-67 -4 -101 -40 -88 -70
+                                     C-49 -65 -16 -26 0 8Z"
+                                  fill="url(#petal-light)"/>
+
+                            <path d="M0 8 C60 -8 94 -43 84 -73
+                                     C48 -61 14 -22 0 8Z"
+                                  fill="url(#petal)"/>
+
+                            <!-- Pétalas frontais -->
+                            <path d="M0 8 C-33 -2 -59 12 -69 40
+                                     C-38 53 -11 33 0 8Z"
+                                  fill="url(#petal)"/>
+
+                            <path d="M0 8 C31 -1 57 15 65 40
+                                     C37 51 11 31 0 8Z"
+                                  fill="url(#petal-light)"/>
+
+                            <!-- Nervuras -->
+                            <g fill="none" stroke="#fff0f7"
+                               stroke-opacity=".55" stroke-width="1.7">
+                                <path d="M0 9 Q-14 -45 -33 -109"/>
+                                <path d="M0 9 Q15 -48 37 -115"/>
+                                <path d="M0 9 Q-39 -10 -86 -68"/>
+                                <path d="M0 9 Q40 -9 82 -71"/>
+                            </g>
+
+                            <!-- Estames -->
+                            <g fill="none" stroke="#f7c66b"
+                               stroke-width="2" stroke-linecap="round">
+                                <path d="M-2 8 Q-14 -15 -30 -42"/>
+                                <path d="M0 8 Q-7 -18 -11 -49"/>
+                                <path d="M2 8 Q3 -16 10 -44"/>
+                                <path d="M4 8 Q15 -10 31 -34"/>
+                            </g>
+
+                            <g fill="#d9a34d">
+                                <ellipse cx="-31" cy="-43" rx="5" ry="2.7"
+                                         transform="rotate(35 -31 -43)"/>
+                                <ellipse cx="-11" cy="-50" rx="5" ry="2.7"
+                                         transform="rotate(70 -11 -50)"/>
+                                <ellipse cx="11" cy="-45" rx="5" ry="2.7"
+                                         transform="rotate(-65 11 -45)"/>
+                                <ellipse cx="32" cy="-35" rx="5" ry="2.7"
+                                         transform="rotate(-35 32 -35)"/>
+                            </g>
+
+                            <circle cx="0" cy="8" r="5" fill="#f7c6de"/>
+                        </g>
+                    </defs>
+
+                    <!-- Luz atrás das flores -->
+                    <ellipse cx="300" cy="260" rx="235" ry="220"
+                             fill="url(#flower-glow)"/>
+
+                    <!-- Caules -->
+                    <g fill="none" stroke-linecap="round">
+                        <path d="M300 500 Q274 382 190 225"
+                              stroke="#174b35" stroke-width="7"/>
+                        <path d="M300 500 Q315 365 320 230"
+                              stroke="#286747" stroke-width="7"/>
+                        <path d="M300 500 Q355 390 422 280"
+                              stroke="#1e5a3d" stroke-width="7"/>
+                        <path d="M300 500 Q246 415 245 310"
+                              stroke="#245f40" stroke-width="5"/>
+                    </g>
+
+                    <!-- Folhas -->
+                    <g fill="url(#leaf)">
+                        <path d="M275 442 C215 438 174 390 167 342
+                                 C222 358 267 393 275 442Z"/>
+                        <path d="M294 463 C336 414 387 408 426 424
+                                 C393 459 341 475 294 463Z"/>
+                        <path d="M254 399 C201 385 171 348 174 310
+                                 C220 329 249 360 254 399Z"/>
+                        <path d="M324 417 C352 360 398 342 435 351
+                                 C411 392 368 416 324 417Z"/>
+                        <path d="M291 366 C252 332 248 289 268 258
+                                 C297 293 304 332 291 366Z"/>
+                        <path d="M347 377 C384 339 391 302 374 274
+                                 C347 306 338 344 347 377Z"/>
+                    </g>
+
+                    
+                    <!-- Lírio esquerdo -->
+                    <g class="flower flower-left"
+                    transform="translate(190 217) rotate(-15) scale(.7)">
+                        <use href="#lily"/>
+                    </g>
+
+                    <!-- Lírio direito -->
+                    <g class="flower flower-right"
+                    transform="translate(422 272) rotate(19) scale(.72)">
+                        <use href="#lily"/>
+                    </g>
+
+                    <!-- Lírio central -->
+                    <g class="flower flower-center"
+                    transform="translate(320 222) scale(1.04)">
+                        <use href="#lily"/>
+                    </g>
+                    <!-- Pequenos pontos de luz -->
+                    <g class="sparkles" fill="#f8c7df">
+                        <circle cx="123" cy="177" r="2.5"/>
+                        <circle cx="466" cy="169" r="2"/>
+                        <circle cx="447" cy="355" r="2.4"/>
+                        <circle cx="149" cy="316" r="1.8"/>
+                    </g>
+                </svg>
+            </div>
+
+            <button class="next-button" data-next>
+                Presente não acaba aqui <span>&rArr;</span>
+            </button>
+
+            <p class="page-indicator">01 / 03</p>
+        </section>
+
+
+        <!-- TELA 2: A CARTA -->
+        <section class="screen letter" id="carta">
+
+            <p class="eyebrow">Sou amoroso demais pra não dar nada pra você</p>
+            <h2>Cartinha de aniversário</h2>
+            
+            <div class="letter-scene" id="letterScene">
+
+                <div class="envelope">
+                    <div class="envelope-back"></div>
+
+                    <article class="letter-paper" id="loveLetter">
+                        <p class="letter-greeting">Para você, com carinho ♡</p>
+
+                        <div class="letter-content">
+                            <p>Oiee, feliz aniversário minha princesa!! Sei que não faz uma cota que a gente se conhece, mas ainda assim queria deixar uma mensagenzinha pro seu dia ficar mais especial!
+                            </p>
+
+                            <p>Fiz esse sitezinho no meu tempo livre, pois sou um nerd apaixonado, e você é minha musa desde que nos declaramos, e eu faço de tudo pela minha musa, principalmente quando é aniversário dela!
+                            </p>
+                            
+                            <p>Quero te desejar tudo de bom na sua vida, e quero que eu esteja presente pra ver tudo de bom que acontecer nela. Quero que saiba que tudo que já passou, passou, e agora é questão de construir seu futuro, que na minha visão, é bem promissor.  Você é very much capaz de tudo. E eu fico muito orgulhoso de você cada dia mais!
+                            </p>
+                            <p> Novamente, a gente não se conhece a muito tempo, mas nesse curto espaço, já me apaixonei de novo e de novo e de novo, pela pessoa que vi que você é, quem se tornou apesar de todos os desafios. E que essa nova primavera seja cheia de flores vivas, muitas felicidades e repleta de (mim) amigos! Eu te amo muito minha princesinha, tô muito feliz por poder passar seu aniversário de 19 junto com você, e espero poder passar muitos mais!
+                            </p>
+                            <p>Este presente é pequeno perto de tudo que eu gostaria de dizer, mas cada detalhe foi pensado com muito carinho. Espero que você tenha gostado! Se quiser o código fonte, me fala e te passo! Feliz aniversário princesa!  ♡
+                            </p>
+
+                            <p class="letter-signature">
+                                Com carinho, seu Garcia. ♡
+                            </p>
+                        </div>
+                    </article>
+
+                    <div class="envelope-front"></div>
+                    <div class="envelope-flap"></div>
+
+                    <button
+                        class="envelope-seal"
+                        id="openLetter"
+                        type="button"
+                        aria-label="Abrir a carta"
+                        aria-expanded="false"
+                        aria-controls="loveLetter"
+                    >♡</button>
+                </div>
+
+                <p class="envelope-hint" id="envelopeHint">
+                    Toque no coração ♡
+                </p>
+
+            </div>
+            
+            
+
+            <nav class="screen-controls" aria-label="Navegação">
+                <button class="nav-button" data-prev>
+                    ← Voltar
+                </button>
+                <button class="nav-button" data-next>
+                    Próxima página →
+                </button>
+            </nav>
+
+            <p class="page-indicator">02 / 03</p>
+        </section>
+
+
+        <!-- TELA 3: AS MEMÓRIAS -->
+        <section class="screen memories" id="memorias">
+
+            
+            <!-- UNIVERSO DE MEMÓRIAS -->
+            <div class="memory-universe">
+
+                <p class="universe-subtitle">
+                    Algumas coisas bonitas merecem seu próprio céu. ♡
+                </p>
+
+                <!-- CONSTELAÇÃO INTERATIVA -->
+                <div class="constellation" aria-label="Constelação de mensagens">
+
+                    <span class="constellation-line line-one"></span>
+                    <span class="constellation-line line-two"></span>
+                    <span class="constellation-line line-three"></span>
+                    <span class="constellation-line line-four"></span>
+
+                    <button class="memory-star star-one"
+                        type="button"
+                        data-star-message="0"
+                        data-letter-hint="Abra quando se sentir sozinha ♡"
+                        aria-label="Revelar uma mensagem">
+                        ✦
+                    </button>
+
+                    <button class="memory-star star-two"
+                        type="button"
+                        data-star-message="1"
+                        
+                        data-letter-hint="Abra quando se sentir tristinha ♡"
+                        aria-label="Revelar uma mensagem">
+                        ✧
+                    </button>
+
+                    <button class="memory-star star-three"
+                        type="button"
+                        data-star-message="2"
+                        data-letter-hint="Abra quando duvidar de si mesma ♡"
+                        aria-label="Revelar uma mensagem">
+                        ★
+                    </button>
+
+                    <button class="memory-star star-four"
+                        type="button"
+                        data-star-message="3"
+                        data-letter-hint="Abra quando tiver um dia maravilhoso ♡"
+                        aria-label="Revelar uma mensagem">
+                        ✦
+                    </button>
+
+                    <button class="memory-star star-five"
+                        type="button"
+                        data-star-message="4"
+                        data-letter-hint="Abra quando sentir saudade de mim ♡"
+                        aria-label="Revelar uma mensagem">
+                        ✧
+                    </button>
+
+                    <div class="star-message" id="starMessage"
+                        role="status" aria-live="polite">
+                        Escolha uma estrela para descobrir uma mensagem. ♡
+                    </div>
+
+                    
+                    
+
+                </div>
+
+                <!-- POTE DE MENSAGENS -->
+                <div class="message-jar-area">
+
+                    <h3>Um pote de fofurices</h3>
+
+                    <p>
+                        Meu carinho fragmentado em frasesinhas.
+                    </p>
+
+                    <button class="message-jar" id="drawMessage"
+                        type="button"
+                        aria-label="Retirar um bilhete do pote">
+                                                
+                        <span class="jar-lid"></span>
+
+                        <!-- Bilhetinho que sai de dentro do pote -->
+                        <span class="jar-paper" aria-hidden="true"></span>
+
+                        <span class="jar-body">
+                            <span class="jar-stars">✦ ♡ ✧</span>
+                            <span class="jar-label">para você</span>
+                        </span>
+                        
+
+                    </button>
+
+                    <p class="jar-hint" id="jarHint">
+                        Toque no potinho para retirar um bilhete.
+                    </p>
+
+                    <div class="message-ticket" id="messageTicket"
+                        aria-live="polite" aria-atomic="true" hidden>
+
+                        <span class="ticket-decoration">♡</span>
+
+                        <p class="ticket-text" id="ticketText"></p>
+
+                        <span class="ticket-footer">
+                            Um pedacinho do meu coração.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- FIM DO UNIVERSO DE MEMÓRIAS -->
+
+            <nav class="screen-controls" aria-label="Navegação">
+                <button class="nav-button" data-prev>
+                    ← Voltar
+                </button>
+                <button class="nav-button" data-home>
+                    Voltar ao jardim ♡
+                </button>
+            </nav>
+
+            <p class="page-indicator">03 / 03</p>
+        </section>
+
+    </main>
+    <div class="letter-overlay" id="letterOverlay" hidden>
+                        <article class="star-letter" role="dialog"
+                            aria-modal="true"
+                            aria-labelledby="starLetterTitle">
+
+                            <button class="close-star-letter" id="closeStarLetter"
+                                type="button" aria-label="Fechar carta">
+                                ×
+                            </button>
+
+                            <span class="star-letter-decoration">✧ ･ﾟ♡ ･ﾟ✧</span>
+
+                            <p class="star-letter-label">UMA CARTINHA PARA VOCÊ</p>
+
+                            <h3 id="starLetterTitle">Abra quando...</h3>
+
+                            <div class="star-letter-divider">♡</div>
+
+                            <p class="star-letter-text" id="starLetterText"></p>
+
+                            <span class="star-letter-signature">
+                                Com carinho, sempre. ♡
+                            </span>
+                        </article>
+                    </div>
+    
+    
+    
+    <div class="eternal-sakura">
+        <span class="sakura-icon">🌸</span>
+    </div>
+
+    <div class="sakura-tooltip">
+        Eu te amo tanto, mas tanto que não cabe no meu peito. ♡
+    </div>
+</body>
+</html>

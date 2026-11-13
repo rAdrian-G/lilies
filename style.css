@@ -1,0 +1,1848 @@
+
+/* ===== 1. CONFIGURAÇÕES GERAIS ===== */
+
+:root {
+    --black: #050507;
+    --pink: #d989b4;
+    --pink-light: #f4d7e7;
+    --pink-dark: #78214f;
+    --wine: #351426;
+    --white: #f7edf3;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--black);
+}
+
+body {
+    margin: 0;
+    background: var(--black);
+    color: var(--white);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--pink-light);
+    outline-offset: 5px;
+}
+
+
+/* ===== 2. SISTEMA DE TELAS ===== */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.experience {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    /* Importante: não cortar as telas vizinhas */
+    overflow: visible;
+
+    transition: transform 850ms cubic-bezier(.77, 0, .18, 1);
+}
+
+.screen {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    align-items: center;
+    text-align: center;
+    padding: 35px 24px 
+}
+
+/* ===== 3. TIPOGRAFIA ===== */
+
+.eyebrow {
+    color: var(--pink);
+    font-family: Arial, sans-serif;
+    font-size: .68rem;
+    letter-spacing: .28em;
+    line-height: 1.8;
+}
+
+/* Cabeçalho */
+.garden-heading {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.garden h1,
+.screen h2 {
+    margin: 12px 0;
+    font-size: clamp(2rem, 5vw, 3.7rem);
+    font-weight: 400;
+    letter-spacing: -.04em;
+}
+
+.garden h1 span {
+    display: block;
+    color: var(--pink);
+    font-style: italic;
+}
+
+.subtitle,
+.memories-intro {
+    color: #b8a8b3;
+    font-size: .95rem;
+    line-height: 1.8;
+}
+
+
+/* ===== 4. LUZ AMBIENTE ===== */
+
+.garden {
+    isolation: isolate;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    padding: 30px 24px;
+}
+.ambient-glow {
+    position: absolute;
+    z-index: -1;
+    top: 22%;
+    left: 50%;
+
+    width: min(90vw, 700px);
+    aspect-ratio: 1;
+
+    transform: translateX(-50%);
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(156, 36, 98, .17) 0%,
+        rgba(90, 20, 56, .08) 38%,
+        transparent 70%
+    );
+
+    pointer-events: none;
+}
+
+
+/* ===== 5. BUQUÊ ===== */
+
+.bouquet {
+    width: min(100%, 540px);
+    flex: 1 1 auto;
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lily-art {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 540px;
+    overflow: visible;
+
+    filter: drop-shadow(0 10px 28px rgba(120, 33, 79, .15));
+}
+
+.flower {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+}
+
+.flower-center {
+    animation: flower-sway 6s ease-in-out infinite;
+}
+
+.flower-left {
+    animation: flower-sway 7s ease-in-out infinite reverse;
+}
+
+.flower-right {
+    animation: flower-sway 6.5s ease-in-out infinite;
+    animation-delay: -2s;
+}
+
+@keyframes flower-sway {
+    0%, 100% {
+        rotate: -1deg;
+        translate: 0 0;
+    }
+
+    50% {
+        rotate: 1deg;
+        translate: 0 -3px;
+    }
+}
+
+.sparkles circle {
+    animation: sparkle 3s ease-in-out infinite alternate;
+}
+
+.sparkles circle:nth-child(even) {
+    animation-delay: -1.5s;
+}
+
+@keyframes sparkle {
+    from {
+        opacity: .2;
+        scale: .7;
+    }
+
+    to {
+        opacity: .9;
+        scale: 1.2;
+    }
+}
+
+
+/* ===== 6. BOTÕES ===== */
+
+.next-button,
+.nav-button {
+    
+    color: var(--pink-light);
+    background: transparent;
+    border: 1px solid rgba(217, 137, 180, .45);
+    border-radius: 999px;
+
+    padding: 13px 23px;
+    font-size: .85rem;
+
+    transition:
+        background 250ms ease,
+        border-color 250ms ease,
+        transform 250ms ease,
+        box-shadow 250ms ease;
+}
+
+.next-button span {
+    margin-left: 10px;
+}
+
+.next-button:hover,
+.nav-button:hover {
+    background: rgba(217, 137, 180, .1);
+    border-color: var(--pink);
+    box-shadow: 0 0 25px rgba(217, 137, 180, .1);
+    transform: translateY(-2px);
+}
+
+.page-indicator {
+    margin: 25px 0 0;
+    align-self: center;
+    text-align: center;
+    margin-inline: auto;
+    color: #786674;
+    font-family: Arial, sans-serif;
+    font-size: .7rem;
+    letter-spacing: .2em;
+}
+
+
+/* ===== 7. TELA DA CARTA ===== */
+
+.letter {
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 50% 35%,
+        rgba(104, 31, 68, .14),
+        transparent 65%),
+        var(--black);
+}
+
+.letter-paper {
+    width: min(100%, 570px);
+    margin: 25px 0;
+
+    padding: clamp(25px, 5vw, 52px);
+
+    background: #f1e4e9;
+    color: #38212e;
+    border-radius: 3px;
+
+    box-shadow:
+        0 15px 70px rgba(0, 0, 0, .35),
+        0 0 40px rgba(217, 137, 180, .06);
+
+    flex: 0 0 auto;
+    text-align: left;
+}
+
+.letter-placeholder {
+    font-size: 1.05rem;
+    line-height: 1.95;
+}
+
+.screen-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+
+/* ===== 8. TELA DAS MEMÓRIAS ===== */
+
+.memories {
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 50% 40%,
+        rgba(104, 31, 68, .12),
+        transparent 65%),
+        var(--black);
+}
+
+.film-strip {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+
+    width: min(100%, 1000px);
+    margin: 30px 0 15px;
+    padding: 14px 12px;
+
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+
+    background: #161116;
+    border-top: 7px dashed #40303a;
+    border-bottom: 7px dashed #40303a;
+}
+
+.film-frame {
+    flex: 0 0 clamp(190px, 28vw, 260px);
+    margin: 0;
+    padding: 9px 9px 15px;
+
+    background: #080708;
+    border: 1px solid #382631;
+}
+
+.film-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    background: #21151d;
+}
+
+.film-frame figcaption {
+    padding-top: 12px;
+    color: var(--pink-light);
+    font-size: .8rem;
+}
+
+
+/* ===== 9. CELULARES ===== */
+
+@media (max-width: 600px) {
+    .screen {
+        padding: 25px 18px;
+    }
+
+    .garden h1,
+    .screen h2 {
+        font-size: clamp(2rem, 9vw, 2.8rem);
+    }
+
+    .subtitle,
+    .memories-intro {
+        font-size: .85rem;
+    }
+
+    .bouquet {
+        width: 115%;
+        max-width: 470px;
+        margin: -5px 0;
+    }
+
+    .lily-art {
+        max-height: 440px;
+    }
+
+    .page-indicator {
+        margin-top: 18px;
+    }
+
+    .letter-paper {
+        padding: 24px;
+    }
+    .letter-paper p{
+        line-height: 1.9;
+    }
+    .screen-controls {
+        gap: 8px;
+    }
+    .nav-button {
+        padding: 12px 16px;
+    }
+
+    .film-frame {
+        flex-basis: 200px;
+    }
+}
+
+
+/* ===== 10. ACESSIBILIDADE ===== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}   
+.bouquet {
+    width: 100%;
+    max-width: 540px;
+    margin-inline: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lily-art {
+    display: block;
+    width: 100%;
+    max-width: 540px;
+    height: auto;
+    margin-inline: auto;
+}.garden {
+    width: 100%;
+    align-items: center;
+}
+
+.garden > .next-button {
+    flex: 0 0 auto;
+    margin-top: 12px;
+}
+
+.garden > .page-indicator {
+    flex: 0 0 auto;
+    margin-top: 18px;
+}
+
+.garden > .next-button {
+    display: block;
+    width: fit-content;
+    margin: 12px auto 0;
+    align-self: center;
+    text-align: center;
+}
+.garden-heading,
+.garden > .next-button,
+.garden > .page-indicator {
+    align-self: center;
+    text-align: center;
+}
+.letter > .eyebrow,
+.letter > .h2,
+.letter > .letter-paper,
+.letter > .screen-controls,
+.letter > .page-indicator {
+    width: min(100%, 570px);
+    margin-left: auto;
+    margin-right: auto;    
+}
+.letter .screen-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.memories > .eyebrow,
+.memories > .h2,
+.memories > .memories-intro {
+    width: min(100%, 800px);
+    margin-left: auto;
+    margin-right: auto;
+}
+.memories .film-strip {
+    width: min(100%, 900px);
+    margin-left: auto;
+    margin-right: auto;
+}
+.memories .screen-controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.screen{
+    isolation: isolate;
+}
+.magic-effects{
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+    cursor: default;
+    transition:
+        filter 250ms ease,
+        scale 250ms ease;
+}
+
+.floating-pedals,
+.light-particles{
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+.petal {
+    cursor: default;
+    pointer-events: auto;
+    position: absolute;
+    top: -35px;
+    left: var(--left);
+    width: var(--size);
+    height: calc(var(--size) * 1.5);
+    background: linear-gradient(
+        145deg,
+        #fff0f7,
+        #f5b6d4 55%,
+        #d989b4
+    );
+    border-radius: 80% 15% 70% 30%;
+    opacity: 0;
+    filter: drop-shadow(0 0 4px #f5b6d455);
+
+    animation:
+        petal-fall var(--duration) var(--delay) linear infinite;
+
+    will-change: transform, opacity;
+    transition: filter 250ms ease,
+                scale 250ms ease;
+}
+.petal:hover{
+    filter:
+        brightness(1.15)
+        drop-shadow(0 0 7px #ffc4e2);
+    animation-play-state: paused;
+}
+/* Brisa delicada ao passar o cursor */
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .petal:hover {
+        animation-play-state: paused;
+    }
+}
+
+@keyframes petal-fall {
+    0% {
+        transform: translate3d(0, -5vh, 0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: var(--petal-opacity);
+    }
+
+    50% {
+        transform:
+            translate3d(var(--drift), 50vh, 0)
+            rotate(180deg);
+    }
+
+    90% {
+        opacity: var(--petal-opacity);
+    }
+
+    100% {
+        transform:
+            translate3d(calc(var(--drift) * -0.5), 110vh, 0)
+            rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Pontinhos de luz */
+
+.particle {
+    position: absolute;
+    left: var(--left);
+    top: var(--top);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background: #fff0fa;
+    box-shadow:
+        0 0 5px 1px #f5b6d4aa,
+        0 0 12px 2px #d989b466;
+    opacity: 0;
+
+    animation:
+        sparkle var(--duration) var(--delay) ease-in-out infinite;
+
+    will-change: opacity, transform;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: var(--particle-opacity);
+        transform: scale(1.3);
+    }
+}
+
+/* Respeita quem prefere menos animação */
+
+@media (prefers-reduced-motion: reduce) {
+    .petal,
+    .particle {
+        animation: none;
+        display: none;
+    }
+}
+
+/* Corações flutuantes */
+
+.floating-heart {
+    position: absolute;
+    left: var(--left);
+    bottom: -30px;
+    color: #f5b6d4;
+    font-size: var(--size);
+    opacity: 0;
+    pointer-events: none;
+    text-shadow: 0 0 8px #e99bc855;
+
+    animation:
+        heart-float var(--duration) var(--delay) ease-in-out infinite;
+
+    will-change: transform, opacity;
+}
+
+@keyframes heart-float {
+    0% {
+        transform: translateY(0) rotate(-15deg) scale(0.7);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.65;
+    }
+
+    50% {
+        transform: translateY(-50vh) rotate(12deg) scale(1);
+    }
+
+    85% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(25deg) scale(0.8);
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-heart {
+        animation: none;
+        display: none;
+    }
+}
+
+/* Conteúdo acima da camada decorativa */
+
+/* Os efeitos ficam atrás do conteúdo */
+.screen > .magic-effects {
+    position: absolute;
+    z-index: 2;
+}
+
+/* ========================================
+   CARTA INTERATIVA
+   ======================================== */
+
+.letter-scene {
+    width: 100%;
+    max-width: 560px;
+    min-height: 330px;
+    margin: 10px auto 20px;
+    padding: 25px 12px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+.envelope {
+    position: relative;
+    width: min(100%, 320px);
+    height: 205px;
+    flex: 0 0 auto;
+    perspective: 900px;
+    isolation: isolate;
+    filter: drop-shadow(0 12px 18px #0005);
+}
+
+/* Parte de trás do envelope */
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: #e9a9c8;
+    border: 1px solid #f8d9e8;
+    border-radius: 8px;
+}
+
+/* Papel dentro do envelope */
+
+.letter-paper {
+    position: absolute;
+    left: 5%;
+    bottom: 8px;
+    width: 90%;
+    height: 185px;
+    padding: 20px 18px;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    text-align: left;
+    color: #58374a;
+    background:
+        linear-gradient(#fffafc, #fff2f8);
+    border: 1px solid #f2d7e4;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px #54213a18;
+    z-index: 2;
+
+    transform: translateY(35px);
+    transition:
+        transform 900ms cubic-bezier(.2, .8, .2, 1),
+        height 700ms ease;
+}
+
+/* Frente dobrada do envelope */
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    border-radius: 8px;
+    background: #f2bfd7;
+    clip-path: polygon(
+        0 25%,
+        50% 70%,
+        100% 25%,
+        100% 100%,
+        0 100%
+    );
+}
+
+/* Aba triangular superior */
+
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background: linear-gradient(
+        145deg,
+        #f9d6e7,
+        #e9a4c5
+    );
+    clip-path: polygon(0 0, 100% 0, 50% 58%);
+    transform-origin: top center;
+    transition:
+        transform 750ms ease,
+        opacity 450ms ease;
+}
+
+/* Lacre em forma de coração */
+
+.envelope-seal {
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    z-index: 5;
+    width: 46px;
+    height: 46px;
+    transform: translate(-50%, -50%);
+    border: 2px solid #fce4ef;
+    border-radius: 50%;
+    background: #b94f80;
+    color: #fff0f7;
+    font-family: Georgia, serif;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 3px 10px #78214f40;
+    transition:
+        transform 250ms ease,
+        opacity 300ms ease,
+        box-shadow 250ms ease;
+}
+
+.envelope-seal:hover {
+    transform: translate(-50%, -50%) scale(1.12);
+    box-shadow: 0 0 18px #efb3d4aa;
+}
+
+.envelope-hint {
+    margin: 16px 0 0;
+    color: var(--pink-light);
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+    opacity: 0.9;
+}
+
+/* Tipografia da carta */
+
+.letter-greeting {
+    margin: 0 0 14px;
+    color: #a34b76;
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+.letter-content {
+    opacity: 0;
+    transition: opacity 450ms ease;
+}
+
+.letter-content p {
+    margin: 0 0 12px;
+    line-height: 1.7;
+}
+
+.letter-signature {
+    margin-top: 20px !important;
+    color: #a34b76;
+    font-family: Georgia, serif;
+    font-style: italic;
+    text-align: right;
+}
+
+/* Estado aberto */
+
+.letter-scene.is-open .envelope-flap {
+    transform: rotateX(180deg);
+    opacity: 0;
+}
+
+.letter-scene.is-open .letter-paper {
+    height: 330px;
+    overflow-y: auto;
+    z-index: 6;
+}
+
+.letter-scene.is-open .letter-content {
+    opacity: 1;
+}
+
+.letter-scene.is-open .envelope-seal {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.5);
+}
+
+.letter-scene.is-open .envelope-hint {
+    opacity: 0;
+    transition: opacity 250ms ease;
+}
+.letter-scene.is-open .envelope-front,
+.letter-scene.is-open .envelope-back {
+    transform: translateY(75px);
+}
+
+/* Ajustes para celular */
+
+@media (max-width: 480px) {
+    .letter-scene {
+        min-height: 310px;
+        padding-inline: 8px;
+    }
+
+    .envelope {
+        height: 185px;
+    }
+
+    .letter-scene.is-open .letter-paper {
+        height: 300px;
+        transform: translateY(-65px);
+    }
+
+    .letter-paper {
+        padding: 16px 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .envelope-flap,
+    .envelope-paper,
+    .letter-paper,
+    .letter-content,
+    .envelope-seal {
+        transition-duration: 0.01ms;
+    }
+}
+
+.letter-scene{
+    position: relative;
+    z-index: 6;
+}
+
+/* ========================================
+   ESCRITA GRADUAL DA CARTA
+   ======================================== */
+
+.letter-greeting,
+.letter-content p {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.typed-char {
+    display: inline;
+    opacity: 0;
+    transition: opacity 70ms linear;
+}
+
+.typed-char.is-visible {
+    opacity: 1;
+}
+
+/* Cursor delicado enquanto a carta é escrita */
+
+.letter-content.is-typing .letter-signature::after {
+    content: "♥";
+    display: inline-block;
+    margin-left: 4px;
+    color: #d989b4;
+    font-size: 0.8em;
+    animation: typing-heart 700ms ease-in-out infinite alternate;
+}
+.letter-paper,
+.letter-greeting,
+.letter-content,
+.letter-content p{
+    text-align: left;
+}
+
+@keyframes typing-heart {
+    from {
+        opacity: 0.3;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .typed-char {
+        transition: none;
+    }
+
+    .letter-content.is-typing .letter-signature::after {
+        animation: none;
+    }
+}
+.letter-content.is-typing{
+    opacity: 1;
+}
+
+/* A eterna sakura de Sísifo */
+
+
+@keyframes sakura-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Respeita a preferência por movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+    .eternal-sakura {
+        animation: none;
+    }
+}
+
+.eternal-sakura {
+    position: fixed;
+    right: 24px;
+    bottom: 20px;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.sakura-icon {
+    display: inline-block;
+    font-size: 2.5rem;
+    line-height: 1;
+    animation: sakura-spin 6s linear infinite;
+}
+
+/* Balão fixo, sem rotação */
+.sakura-tooltip {
+    position: fixed;
+    right: 12px;
+    bottom: 85px;
+
+    width: 230px;
+    box-sizing: border-box;
+    padding: 12px;
+
+    background: #fff0f5;
+    color: #713b53;
+    border: 1px solid pink;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px #0002;
+
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(8px);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+}
+
+/* A flor revela o balão */
+.eternal-sakura:hover + .sakura-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ========================================
+   UNIVERSO DE MEMÓRIAS
+   ======================================== */
+
+.memory-universe {
+    --universe-pink: #ffb7d5;
+    --universe-lilac: #d9b8ff;
+    --universe-purple: #9b7bce;
+    --universe-ink: #4b315f;
+
+    
+    width: min(100% - 24px, 1000px);
+    margin: 24px auto 40px;
+    color: var(--universe-ink);
+    text-align: center;
+}
+
+/* Subtítulo */
+
+.universe-subtitle {
+    margin: 0 auto 24px;
+    max-width: 420px;
+    color: var(--universe-purple);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Céu da constelação */
+
+
+.constellation {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    height: 480px;
+    margin: 0 auto 44px;
+    overflow: hidden;
+    isolation: isolate;
+
+    border: 1px solid rgba(217, 184, 255, 0.45);
+    border-radius: 28px;
+
+    background:
+        radial-gradient(
+            circle at 20% 25%,
+            rgba(255, 183, 213, 0.20),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(155, 123, 206, 0.25),
+            transparent 40%
+        ),
+        linear-gradient(145deg, #fff3fa, #f0e6ff);
+
+    box-shadow:
+        0 12px 35px rgba(155, 123, 206, 0.12),
+        inset 0 0 35px rgba(255, 255, 255, 0.65);
+}
+
+/* Linhas conectando as estrelas */
+
+.constellation-line {
+    position: absolute;
+    z-index: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(155, 123, 206, 0.55),
+        rgba(255, 183, 213, 0.7),
+        transparent
+    );
+    transform-origin: left center;
+    pointer-events: none;
+}
+
+.line-one {
+    width: 31%;
+    left: 17%;
+    top: 28%;
+    transform: rotate(22deg);
+}
+
+.line-two {
+    width: 34%;
+    left: 43%;
+    top: 40%;
+    transform: rotate(-36deg);
+}
+
+.line-three {
+    width: 28%;
+    left: 57%;
+    top: 19%;
+    transform: rotate(68deg);
+}
+
+.line-four {
+    width: 35%;
+    left: 28%;
+    top: 62%;
+    transform: rotate(-12deg);
+}
+
+/* Estrelas clicáveis */
+
+.memory-star {
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+
+    background: transparent;
+    color: #a16ed1;
+    font-size: 1.9rem;
+
+    cursor: pointer;
+    text-shadow: 0 0 12px rgba(255, 151, 206, 0.85);
+
+    transition:
+        transform 250ms ease,
+        color 250ms ease,
+        text-shadow 250ms ease;
+    animation: star-twinkle 3s ease-in-out infinite;
+}
+
+.memory-star:hover,
+.memory-star:focus-visible {
+    color: #ed75b2;
+    transform: scale(1.35);
+    text-shadow:
+        0 0 8px #fff,
+        0 0 20px #f5a5d2,
+        0 0 32px #d9b8ff;
+    outline: none;
+}
+
+.memory-star:focus-visible {
+    box-shadow: 0 0 0 2px #9b7bce;
+}
+
+.star-one {
+    left: 13%;
+    top: 20%;
+}
+
+.star-two {
+    left: 37%;
+    top: 33%;
+    animation-delay: 0.5s;
+}
+
+.star-three {
+    left: 68%;
+    top: 12%;
+    animation-delay: 1s;
+}
+.memory-star.star-three::after {
+    bottom: auto !important;
+    top: calc(100% + 10px) !important;
+}
+
+.star-four {
+    left: 76%;
+    top: 57%;
+    animation-delay: 1.5s;
+}
+
+.star-five {
+    left: 23%;
+    top: 57%;
+    animation-delay: 2s;
+}
+
+@keyframes star-twinkle {
+    0%, 100% {
+        opacity: 0.75;
+        filter: brightness(1);
+    }
+
+    50% {
+        opacity: 1;
+        filter: brightness(1.3);
+    }
+}
+
+/* Mensagem revelada pelas estrelas */
+
+.star-message {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+
+    width: calc(100% - 36px);
+    box-sizing: border-box;
+    padding: 12px 16px;
+
+    border: 1px solid rgba(217, 184, 255, 0.55);
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.72);
+    color: #68487e;
+
+    font-size: 0.9rem;
+    line-height: 1.5;
+    box-shadow: 0 5px 18px rgba(155, 123, 206, 0.10);
+}
+
+/* Pote de mensagens */
+
+.message-jar-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0 24px;
+}
+
+.message-jar-area h3 {
+    margin: 0;
+    color: #8e65b4;
+    font-size: 1.3rem;
+}
+
+.message-jar-area > p {
+    max-width: 360px;
+    margin: 0;
+    color: #876e98;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Botão do pote */
+
+.message-jar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 126px;
+    height: 154px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+    transition: transform 250ms ease;
+}
+
+.message-jar:hover {
+    transform: translateY(-5px) rotate(-2deg);
+}
+
+.message-jar:focus-visible {
+    outline: 2px solid #b88ce0;
+    outline-offset: 5px;
+    border-radius: 20px;
+}
+
+/* Tampa */
+
+.jar-lid {
+    position: relative;
+    z-index: 2;
+    width: 70px;
+    height: 17px;
+    margin-bottom: -2px;
+
+    border: 2px solid #d5a9d7;
+    border-radius: 6px 6px 4px 4px;
+
+    background: linear-gradient(
+        180deg,
+        #ffe1ef,
+        #e7c5ee
+    );
+
+    box-shadow: 0 3px 5px rgba(112, 65, 130, 0.12);
+}
+
+/* Corpo de vidro */
+
+.jar-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    width: 104px;
+    height: 119px;
+    box-sizing: border-box;
+
+    border: 2px solid rgba(190, 148, 215, 0.8);
+    border-radius: 22px 22px 28px 28px;
+
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 221, 241, 0.65),
+        rgba(224, 203, 255, 0.75)
+    );
+
+    box-shadow:
+        inset 6px 0 12px rgba(255, 255, 255, 0.75),
+        inset -5px 0 12px rgba(178, 134, 210, 0.10),
+        0 10px 24px rgba(155, 123, 206, 0.15);
+}
+
+.jar-body::before {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 10px;
+    width: 5px;
+    height: 43px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.jar-stars {
+    color: #c184d7;
+    font-size: 1.35rem;
+    letter-spacing: 2px;
+}
+
+.jar-label {
+    padding: 5px 10px;
+    border: 1px solid rgba(213, 169, 215, 0.7);
+    border-radius: 8px;
+
+    background: rgba(255, 247, 252, 0.9);
+    color: #956ca9;
+
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+}
+
+/* Animação do bilhete */
+
+.message-ticket {
+    position: relative;
+    width: min(100% - 20px, 340px);
+    box-sizing: border-box;
+    margin-top: 8px;
+    padding: 24px 20px 20px;
+
+    border: 1px solid #efc8e4;
+    border-radius: 5px 5px 16px 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.95),
+            rgba(255, 242, 249, 0.98)
+        );
+
+    box-shadow: 0 10px 28px rgba(155, 123, 206, 0.15);
+
+    transform-origin: top center;
+}
+
+.message-ticket:not([hidden]) {
+    animation: ticket-unfold 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes ticket-unfold {
+    0% {
+        opacity: 0;
+        transform: translateY(-24px) scaleY(0.2) rotate(-3deg);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(4px) scaleY(1.03) rotate(1deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scaleY(1) rotate(0);
+    }
+}
+
+.ticket-decoration {
+    display: block;
+    margin-bottom: 8px;
+    color: #db8ab8;
+    font-size: 1.5rem;
+}
+
+.ticket-text {
+    margin: 0 0 16px;
+    color: #68487e;
+    font-size: 1rem;
+    line-height: 1.8;
+    white-space: pre-line;
+}
+
+.ticket-footer {
+    display: block;
+    padding-top: 12px;
+    border-top: 1px dashed #e7b9d9;
+    color: #a17db0;
+    font-size: 0.78rem;
+    font-style: italic;
+}
+
+/* Acessibilidade: respeitar movimento reduzido */
+
+@media (prefers-reduced-motion: reduce) {
+    .memory-star,
+    .message-jar,
+    .message-ticket:not([hidden]) {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* Ajustes para celular */
+
+@media (max-width: 480px) {
+    .memory-universe {
+        width: calc(100% - 24px);
+        margin-top: 18px;
+    }
+
+    .constellation {
+        height: 380px;
+        border-radius: 22px;
+    }
+
+    .memory-star {
+        width: 40px;
+        height: 40px;
+        font-size: 1.7rem;
+    }
+
+    .star-message {
+        bottom: 12px;
+        width: calc(100% - 24px);
+        font-size: 0.82rem;
+    }
+}
+
+/* ========================================
+   CARTINHAS SECRETAS DAS ESTRELAS
+   ======================================== */
+
+.memory-star {
+    position: absolute;
+}
+
+/* Legenda ao passar o mouse */
+.memory-star::after {
+    content: attr(data-letter-hint);
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 10px);
+    transform: translate(-50%, 6px);
+
+    width: max-content;
+    max-width: 180px;
+    box-sizing: border-box;
+    padding: 8px 12px;
+
+    border: 1px solid rgba(217, 184, 255, 0.7);
+    border-radius: 12px;
+    background: rgba(255, 250, 255, 0.96);
+
+    color: #68487e;
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: center;
+
+    box-shadow: 0 5px 18px rgba(155, 123, 206, 0.16);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 200ms ease,
+        transform 200ms ease,
+        visibility 200ms ease;
+}
+
+.memory-star:hover::after,
+.memory-star:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+/* Fundo ao abrir uma carta */
+.letter-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+
+    background: rgba(45, 28, 61, 0.48);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+.letter-overlay[hidden] {
+    display: none;
+}
+
+/* Papel da carta */
+.star-letter {
+    position: relative;
+    width: min(100%, 430px);
+    max-height: min(80vh, 650px);
+    overflow-y: auto;
+    box-sizing: border-box;
+
+    padding: 38px 30px 30px;
+
+    border: 1px solid #f0cce5;
+    border-radius: 5px 5px 20px 20px;
+
+    background:
+        radial-gradient(
+            circle at 0% 0%,
+            rgba(255, 211, 233, 0.45),
+            transparent 40%
+        ),
+        linear-gradient(145deg, #fffdfd, #fff3fa 70%, #f8edff);
+
+    color: #68487e;
+    text-align: center;
+
+    box-shadow:
+        0 25px 80px rgba(37, 19, 50, 0.25),
+        inset 0 0 25px rgba(255, 255, 255, 0.9);
+
+    animation: star-letter-open 500ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+
+@keyframes star-letter-open {
+    from {
+        opacity: 0;
+        transform: translateY(22px) scale(0.94) rotate(-1deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0);
+    }
+}
+
+.close-star-letter {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    z-index: 2;
+
+    width: 32px;
+    height: 32px;
+
+    border: 0;
+    border-radius: 50%;
+    background: rgba(237, 211, 240, 0.65);
+
+    color: #8e65a5;
+    font-size: 1.5rem;
+    line-height: 1;
+
+    cursor: pointer;
+    transition: background 200ms ease, transform 200ms ease;
+}
+
+.close-star-letter:hover {
+    background: #f3d7ec;
+    transform: rotate(90deg);
+}
+
+.star-letter-decoration {
+    display: block;
+    margin-bottom: 18px;
+    color: #d98ab9;
+    font-size: 1.3rem;
+    letter-spacing: 0.12em;
+}
+
+.star-letter-label {
+    margin: 0 0 10px;
+    color: #b17eb8;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.17em;
+}
+
+.star-letter h3 {
+    margin: 0;
+    color: #8e65b4;
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+    line-height: 1.4;
+}
+
+.star-letter-divider {
+    margin: 18px 0;
+    color: #dc8db9;
+    font-size: 1.1rem;
+}
+
+.star-letter-text {
+    margin: 0 0 24px;
+    color: #68487e;
+    font-size: 1rem;
+    line-height: 1.9;
+    text-align: left;
+    white-space: pre-line;
+    border-radius: 3px;
+    padding: 8px;
+    border: 1px solid rgba(219, 138, 184, 0.3);
+}
+
+
+.star-letter-signature {
+    display: block;
+    padding-top: 16px;
+    border-top: 1px dashed #e7b9d9;
+
+    color: #a17db0;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+@media (max-width: 480px) {
+    .star-letter {
+        padding: 34px 22px 24px;
+    }
+
+    .star-letter-text {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .star-letter {
+        animation: none;
+    }
+
+    .memory-star::after,
+    .close-star-letter {
+        transition: none;
+    }
+}
+
+/* Animação das mensagens das estrelas */
+.star-message.message-reveal {
+    animation: star-message-appear 450ms ease both;
+}
+
+@keyframes star-message-appear {
+    from {
+        opacity: 0.35;
+        transform: translate(-50%, 8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* ========================================
+   ANIMAÇÃO DO POTINHO
+   ======================================== */
+
+.jar-lid {
+    transform-origin: right bottom;
+    transition: transform 450ms ease;
+}
+
+.jar-paper {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    bottom: 44px;
+
+    width: 43px;
+    height: 48px;
+    box-sizing: border-box;
+
+    border: 1px solid #e7b9d9;
+    border-radius: 3px;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 8px,
+            rgba(177, 126, 184, 0.25) 9px,
+            transparent 10px
+        ),
+        #fff9fd;
+
+    box-shadow: 0 3px 8px rgba(112, 65, 130, 0.12);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(24px) scaleY(0.5);
+    transform-origin: bottom center;
+}
+
+.jar-paper::after {
+    content: "♡";
+    position: absolute;
+    top: 3px;
+    left: 0;
+    right: 0;
+    color: #d98ab9;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.message-jar.is-drawing .jar-lid {
+    transform: translate(-12px, -8px) rotate(-24deg);
+}
+
+.message-jar.is-drawing .jar-paper {
+    animation: jar-paper-rise 850ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.message-jar.is-drawing .jar-body {
+    animation: jar-gentle-wiggle 500ms ease;
+}
+
+@keyframes jar-paper-rise {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(24px) scaleY(0.5);
+    }
+
+    35% {
+        opacity: 1;
+    }
+
+    75% {
+        transform: translateX(-50%) translateY(-47px) scaleY(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-37px) scaleY(1);
+    }
+}
+
+@keyframes jar-gentle-wiggle {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+    75% { transform: rotate(-1deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .message-jar.is-drawing .jar-lid {
+        transition: none;
+    }
+
+    .message-jar.is-drawing .jar-paper,
+    .message-jar.is-drawing .jar-body {
+        animation: none;
+    }
+}
