@@ -1,4 +1,10 @@
-# lilies
+<h1 align="center"> Lilies Project </h1>
+
+<p align="center"> <img width="100"alt="image" src="lily" />
+ </p>
+ 
+---
+
 Birthday present for ma gurl
 
 ## Made with:
